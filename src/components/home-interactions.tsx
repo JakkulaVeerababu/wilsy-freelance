@@ -14,7 +14,6 @@ export function ServiceList() {
           open={i === 0 ? true : undefined}
         >
           <summary>
-            <span className="service-number">0{i + 1}</span>
             <h3>{service.name}</h3>
             <Plus className="plus" size={22} />
             <Minus className="minus" size={22} />
@@ -71,7 +70,6 @@ export function ProcessSteps() {
             }}
             onClick={() => setActive(i)}
           >
-            <span>0{i + 1}</span>
             <span>{step.name}</span>
             <span className="step-dot" />
           </button>
@@ -87,9 +85,6 @@ export function ProcessSteps() {
           tabIndex={0}
           className="process-panel"
         >
-          <span className="process-big-number" aria-hidden="true">
-            0{i + 1}
-          </span>
           <div>
             <span className="eyebrow blue-text">{step.output}</span>
             <h3>

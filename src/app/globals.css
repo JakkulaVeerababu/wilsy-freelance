@@ -84,7 +84,7 @@ img {
   margin-inline: auto;
 }
 .section-space {
-  padding-block: 120px;
+  padding-block: 64px;
 }
 .eyebrow {
   font-size: 12px;
@@ -417,7 +417,7 @@ img {
 }
 /* Editorial rhythm */
 .intro-section {
-  padding-block: 130px 120px;
+  padding-block: 104px 42px;
   display: grid;
   grid-template-columns: 26% 74%;
   gap: 0;
@@ -465,7 +465,7 @@ img {
   align-items: end;
   justify-content: space-between;
   gap: 40px;
-  margin-bottom: 55px;
+  margin-bottom: 46px;
 }
 .section-heading h2 {
   font-size: clamp(40px, 4.4vw, 65px);
@@ -480,7 +480,10 @@ img {
   padding-bottom: 6px;
 }
 .work-section {
-  background: var(--soft);
+  background: #fff;
+}
+.work-section.section-space {
+  padding-top: 52px;
 }
 .concept-disclaimer {
   display: block;
@@ -545,17 +548,6 @@ img {
   height: 4px;
   border-radius: 50%;
   background: #d8d9dc;
-}
-.project-open {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  border-radius: 50%;
-  background: #fff;
-  width: 45px;
-  height: 45px;
-  display: grid;
-  place-items: center;
 }
 .project-caption {
   display: flex;
@@ -973,10 +965,6 @@ img {
 .service-item summary::-webkit-details-marker {
   display: none;
 }
-.service-number {
-  font-size: 10px;
-  color: #858998;
-}
 .service-item h3 {
   font-size: 20px;
   letter-spacing: -0.025em;
@@ -1029,14 +1017,6 @@ img {
   border-top: 1px solid var(--line);
   padding-top: 23px;
 }
-.difference-item-top {
-  display: flex;
-  align-items: center;
-  color: var(--blue);
-}
-.difference-item-top > span {
-  font-size: 11px;
-}
 .difference-item h3 {
   font-size: 21px;
   letter-spacing: -0.035em;
@@ -1069,13 +1049,9 @@ img {
   position: relative;
 }
 .process-tabs button > span:first-child {
-  font-size: 11px;
-  color: #9297a2;
-}
-.process-tabs button > span:nth-child(2) {
   font-size: 17px;
   letter-spacing: -0.025em;
-  color: #838995;
+  color: #9297a2;
 }
 .step-dot {
   width: 8px;
@@ -1097,21 +1073,14 @@ img {
 }
 .process-panel {
   display: grid;
-  grid-template-columns: 0.62fr 1.2fr 1.3fr;
-  gap: 50px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1fr);
+  gap: clamp(28px, 5vw, 72px);
   align-items: center;
-  min-height: 330px;
-  padding-top: 50px;
+  min-height: 280px;
+  padding-top: 38px;
 }
 .process-panel[hidden] {
   display: none;
-}
-.process-big-number {
-  font-size: 160px;
-  letter-spacing: -0.1em;
-  font-weight: 400;
-  color: #d9dfea;
-  align-self: center;
 }
 .process-panel h3 {
   font-size: 38px;
@@ -1132,19 +1101,21 @@ img {
   gap: 17px;
   align-items: center;
   justify-content: center;
-  margin-left: 25px;
+  margin-left: 0;
 }
 .diagram-square {
-  width: 135px;
+  width: 118px;
   aspect-ratio: 1;
-  border: 1px dashed #adb5c7;
+  border: 1px solid #d7deeb;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  border-radius: 7px;
-  transform: rotate(-6deg);
+  gap: 13px;
+  border-radius: 21px;
+  background: rgb(255 255 255 / 0.74);
+  box-shadow: 0 18px 38px -32px rgb(22 43 85 / 0.36);
+  transform: none;
 }
 .crosshair {
   font-size: 45px;
@@ -1159,7 +1130,7 @@ img {
   background: var(--blue);
   border: 0;
   color: white;
-  transform: rotate(7deg);
+  box-shadow: 0 18px 35px -22px rgb(37 99 235 / 0.48);
 }
 .process-diagram > svg {
   width: 18px;
@@ -1260,15 +1231,7 @@ img {
   position: relative;
 }
 .contact-section h2 > span {
-  color: #b1c9ff;
-}
-.contact-big-arrow {
-  position: absolute;
-  right: 4%;
-  bottom: 0;
-  width: 1.9em;
-  height: 1.9em;
-  color: #b1c9ff;
+  color: #fff;
 }
 .contact-bottom {
   margin-top: 52px;
@@ -1978,18 +1941,15 @@ img {
     padding-left: 1px;
   }
   .process-panel {
-    grid-template-columns: 0.6fr 1.1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.9fr);
     gap: 25px;
-  }
-  .process-big-number {
-    font-size: 130px;
   }
   .process-diagram {
     gap: 10px;
     margin-left: 0;
   }
   .diagram-square {
-    width: 95px;
+    width: 108px;
   }
   .diagram-label {
     font-size: 5px;
@@ -2127,10 +2087,10 @@ img {
     display: block;
   }
   .section-space {
-    padding-block: 74px;
+    padding-block: 42px;
   }
   .intro-section {
-    padding-block: 74px;
+    padding-block: 48px 30px;
     display: block;
   }
   .section-label {
@@ -2182,6 +2142,9 @@ img {
   .project-grid {
     grid-template-columns: 1fr;
     gap: 37px;
+  }
+  .work-section.section-space {
+    padding-top: 34px;
   }
   .project-visual {
     aspect-ratio: 1.12;
@@ -2269,9 +2232,6 @@ img {
   .service-tags span {
     font-size: 9px;
   }
-  .service-number {
-    font-size: 9px;
-  }
   .difference-grid {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -2293,22 +2253,14 @@ img {
     padding-bottom: 18px;
     gap: 7px;
   }
-  .process-tabs button > span:nth-child(2) {
+  .process-tabs button > span:first-child {
     font-size: 13px;
   }
-  .process-tabs button > span:first-child {
-    font-size: 9px;
-  }
   .process-panel {
-    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-columns: 1fr;
     gap: 24px;
     padding-top: 32px;
-    min-height: 300px;
-  }
-  .process-big-number {
-    font-size: 92px;
-    align-self: start;
-    padding-top: 15px;
+    min-height: 220px;
   }
   .process-panel h3 {
     font-size: 32px;
@@ -2351,16 +2303,10 @@ img {
   .contact-section {
     padding-block: 40px;
   }
-  .contact-top > svg {
-    width: 35px;
-  }
   .contact-section h2 {
     font-size: clamp(36px, 8.2vw, 57px);
     margin-top: 35px;
     line-height: 1.12;
-  }
-  .contact-big-arrow {
-    display: none;
   }
   .contact-bottom {
     margin-top: 33px;

@@ -137,10 +137,6 @@
 .services-heading .button {
   margin-top: 25px;
 }
-.service-number {
-  color: #888;
-  font-variant-numeric: tabular-nums;
-}
 .service-list {
   border-color: #303030;
 }
@@ -222,32 +218,6 @@
   animation-delay: -35s;
   opacity: 0.75;
 }
-.service-light-layer.lights-paused > span {
-  animation-play-state: paused;
-}
-.light-control {
-  position: absolute;
-  top: 24px;
-  right: max(4%, 24px);
-  z-index: 2;
-  border: 1px solid #252525;
-  background: #080808;
-  border-radius: 30px;
-  color: #999;
-  height: 44px;
-  padding: 0 15px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  font-size: 10px;
-  transition:
-    color 0.25s,
-    border-color 0.25s;
-}
-.light-control:hover {
-  color: white;
-  border-color: #626262;
-}
 @keyframes soft-box-glide {
   from {
     transform: translateX(115vw);
@@ -323,10 +293,6 @@
   .service-item {
     padding-block: 11px;
   }
-  .light-control {
-    top: 22px;
-    right: 20px;
-  }
   .service-light-layer > span {
     width: 45vw;
   }
@@ -335,8 +301,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ribbon-controls,
-  .light-control {
+  .ribbon-controls {
     display: none;
   }
   .ribbon-window {
@@ -479,12 +444,15 @@
 }
 
 .project-grid {
-  max-width: 1240px;
+  max-width: 1440px;
   margin-inline: auto;
+  gap: clamp(26px, 3vw, 46px);
 }
 .project-visual {
   aspect-ratio: 1.58;
-  box-shadow: 0 20px 55px -42px rgb(15 31 53 / 0.45);
+  border: 1px solid rgb(21 31 49 / 0.06);
+  border-radius: 15px;
+  box-shadow: 0 24px 58px -48px rgb(15 31 53 / 0.42);
 }
 .project-caption h3 svg {
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -497,7 +465,7 @@
   gap: 18px;
 }
 .difference-item {
-  min-height: 258px;
+  min-height: 228px;
   padding: 25px 25px 27px;
   border: 1px solid #e5e9ef;
   border-radius: 16px;
@@ -676,5 +644,355 @@
 @media (prefers-reduced-motion: reduce) {
   .process-panel {
     animation: none;
+  }
+}
+
+/* Pricing stays scope-led, with a useful planning range for every tier. */
+.package-timeline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  padding: 17px 0 14px;
+  border-block: 1px solid var(--line);
+}
+.package-timeline > span {
+  color: #777f8c;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.package-timeline > strong {
+  color: #202a3c;
+  font-size: clamp(19px, 2vw, 25px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+.pricing-featured .package-timeline > strong {
+  color: var(--blue);
+}
+.package-delivery {
+  min-height: 41px;
+  font-size: 11px !important;
+  line-height: 1.7 !important;
+  margin-top: 10px !important;
+}
+
+/* Process transparency replaces testimonials with tangible client touchpoints. */
+.proof-footnote {
+  margin-top: 23px;
+  color: #737b88;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.faq-section {
+  background: #f7f8fa;
+}
+.faq-layout {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(42px, 8vw, 140px);
+  align-items: start;
+}
+.faq-heading h2 {
+  margin-top: 25px;
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 1.06;
+  letter-spacing: -0.055em;
+}
+.faq-heading > p {
+  max-width: 275px;
+  margin-top: 18px;
+  color: #6f7580;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.faq-list {
+  border-top: 1px solid #dfe3e9;
+}
+.faq-item {
+  border-bottom: 1px solid #dfe3e9;
+}
+.faq-item summary {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  cursor: pointer;
+  list-style: none;
+  color: #1a1d24;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary > span {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  color: var(--blue);
+}
+.faq-item summary > span::before,
+.faq-item summary > span::after {
+  content: "";
+  position: absolute;
+  inset: 8px 2px auto;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.25s ease;
+}
+.faq-item summary > span::after {
+  transform: rotate(90deg);
+}
+.faq-item[open] summary > span::after {
+  transform: rotate(0deg);
+}
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+.faq-item > p {
+  max-width: 650px;
+  padding: 0 42px 23px 0;
+  color: #68707d;
+  font-size: 13px;
+  line-height: 1.85;
+  animation: faq-answer-in 0.28s ease both;
+}
+@keyframes faq-answer-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .faq-layout {
+    grid-template-columns: 1fr;
+  }
+  .faq-layout {
+    gap: 30px;
+  }
+  .faq-heading > p {
+    max-width: 430px;
+  }
+}
+
+@media (max-width: 760px) {
+  .concept-disclaimer {
+    font-size: 11px;
+  }
+  .package-timeline {
+    margin-top: 24px;
+  }
+  .package-delivery {
+    min-height: 0;
+  }
+  .faq-heading h2 {
+    font-size: 40px;
+  }
+  .faq-item summary {
+    min-height: 68px;
+    font-size: 14px;
+  }
+  .faq-item > p {
+    padding-right: 12px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item > p {
+    animation: none;
+  }
+}
+
+/* Remove decorative counters and let the content carry the hierarchy. */
+.process-tabs button {
+  gap: 0;
+  padding-block: 18px 23px;
+}
+.process-tabs button > span:first-child {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #777f8d;
+}
+.process-tabs button[aria-selected="true"] > span:first-child {
+  color: var(--blue);
+}
+.process-panel {
+  min-height: 230px;
+  padding-top: 31px;
+}
+.diagram-square {
+  width: 112px;
+  border-radius: 22px;
+  transform: none;
+}
+.diagram-square.solid {
+  transform: none;
+}
+.difference-item h3 {
+  margin-top: 12px;
+}
+.proof-footnote {
+  margin-top: 18px;
+}
+
+/* Keep the blue invitation clear, compact, and easy to act on. */
+.contact-section {
+  padding-block: 43px 48px;
+}
+.contact-top {
+  justify-content: flex-start;
+}
+.contact-section h2 {
+  max-width: 1400px;
+  padding-right: 0;
+  margin-top: 27px;
+  color: #e4e9f2;
+  font-size: clamp(44px, 5vw, 78px);
+  line-height: 1.03;
+}
+.contact-section h2 > .sentence-reveal {
+  color: #e4e9f2;
+}
+.contact-section h2 > .contact-highlight {
+  color: #fff;
+  font-weight: 550;
+}
+.contact-section .contact-bottom {
+  margin-top: 31px;
+  padding-top: 23px;
+}
+
+@media (max-width: 760px) {
+  .process-tabs button {
+    padding-block: 12px 18px;
+  }
+  .process-tabs button > span:first-child {
+    font-size: 13px;
+  }
+  .process-panel {
+    min-height: 200px;
+    padding-top: 25px;
+  }
+  .difference-item h3 {
+    margin-top: 10px;
+  }
+  .contact-section {
+    padding-block: 34px 37px;
+  }
+  .contact-section h2 {
+    max-width: none;
+    padding-right: 0;
+    margin-top: 24px;
+    font-size: clamp(37px, 8vw, 55px);
+    line-height: 1.08;
+  }
+  .contact-section .contact-bottom {
+    margin-top: 24px;
+    padding-top: 19px;
+  }
+}
+
+/* Let portfolio concepts sit cleanly on the site's white canvas. */
+.work-section {
+  background: #fff;
+}
+
+/* Fit complete concept interfaces inside the rounded work tiles. */
+.work-section .project-visual {
+  aspect-ratio: 1.08;
+  padding: 56px 38px 18px;
+  border-radius: 18px;
+  background: #f1f3f5;
+  border-color: #e6e9ee;
+  box-shadow: 0 20px 54px -46px rgb(15 31 53 / 0.34);
+}
+.work-section .project-card .project-browser {
+  width: 100%;
+  border: 1px solid rgb(20 30 48 / 0.08);
+  border-radius: 10px 10px 0 0;
+  zoom: 0.76;
+}
+
+@media (max-width: 1100px) {
+  .work-section .project-visual {
+    aspect-ratio: auto;
+    height: clamp(500px, calc(45vw + 160px), 655px);
+    padding: 54px 28px 18px;
+  }
+  .work-section .project-card .project-browser {
+    width: 100%;
+    zoom: 0.76;
+  }
+}
+
+@media (max-width: 760px) {
+  .work-section .project-visual {
+    height: clamp(380px, calc(30vw + 280px), 508px);
+    padding: 48px 24px 18px;
+  }
+  .work-section .project-card .project-browser {
+    width: 100%;
+    zoom: 0.8;
+  }
+}
+
+@media (max-width: 600px) {
+  .work-section .project-card .project-browser {
+    width: 100%;
+    zoom: 0.7;
+  }
+}
+
+@media (max-width: 450px) {
+  .work-section .project-card .project-browser {
+    width: 100%;
+    zoom: 0.6;
+  }
+}
+
+@media (max-width: 380px) {
+  .work-section .project-card .project-browser {
+    width: 100%;
+    zoom: 0.57;
+  }
+}
+
+@media (max-width: 340px) {
+  .work-section .project-card .project-browser {
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-inner {
+    gap: 8px;
+  }
+  .logo {
+    font-size: 31px;
+  }
+  .header-cta {
+    min-height: 36px;
+    padding: 8px 10px;
+    gap: 8px;
+    font-size: 11px;
+  }
+  .menu-button {
+    width: 30px;
+  }
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+  .hero-actions .button {
+    gap: 9px;
+    padding-inline: 11px;
+    font-size: 11px;
   }
 }

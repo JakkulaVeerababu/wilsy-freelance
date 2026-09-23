@@ -1,12 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUpRight,
-  Check,
-  Asterisk,
-} from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Reveal, SentenceReveal } from "@/components/motion";
 import { CapabilityRibbon } from "@/components/capability-ribbon";
 import { ServiceLights } from "@/components/service-lights";
@@ -98,7 +92,7 @@ export default function Home() {
           <Reveal className="section-heading">
             <div>
               <span className="eyebrow">
-                <span className="tiny-square" /> Design explorations / 01
+                <span className="tiny-square" /> Selected concept work
               </span>
               <h2>
                 <SentenceReveal text="Big ideas." />
@@ -113,7 +107,7 @@ export default function Home() {
               <br />
               and considered engineering can do.
               <span className="concept-disclaimer">
-                Studio concepts. Not client commissions.
+                Self-initiated studio builds, selected to show our range, systems thinking, and craft.
               </span>
             </p>
           </Reveal>
@@ -129,7 +123,7 @@ export default function Home() {
                   className="project-visual"
                   aria-label={`Explore ${project.name}, a ${project.category.toLowerCase()} concept`}
                 >
-                  <span className="project-concept">STUDIO CONCEPT</span>
+                  <span className="project-concept">SELF-INITIATED CONCEPT</span>
                   <div className="project-browser">
                     <div className="browser-bar">
                       <div>
@@ -148,9 +142,6 @@ export default function Home() {
                       <OrbitPreview />
                     )}
                   </div>
-                  <span className="project-open">
-                    <ArrowUpRight />
-                  </span>
                 </Link>
                 <div className="project-caption">
                   <div>
@@ -174,7 +165,7 @@ export default function Home() {
         <div className="container services-layout">
           <Reveal className="services-heading">
             <span className="eyebrow">
-              <span className="tiny-square" /> What we do / 02
+              <span className="tiny-square" /> What we do
             </span>
             <h2>
               <SentenceReveal text="From first" />
@@ -197,49 +188,48 @@ export default function Home() {
           <ServiceList />
         </div>
       </section>
-      <section className="difference-section section-space">
+      <section className="difference-section section-space" id="proof">
         <div className="container">
           <Reveal className="section-heading">
             <div>
               <span className="eyebrow">
-                <span className="tiny-square" /> The Wilsy difference / 03
+                <span className="tiny-square" /> Clear at every stage
               </span>
               <h2>
-                <SentenceReveal text="Beautiful on the surface." />
+                <SentenceReveal text="See the work take shape." />
                 <br />
                 <span className="muted-text">
-                  <SentenceReveal text="Better underneath." />
+                  <SentenceReveal text="Know what comes next." />
                 </span>
               </h2>
             </div>
+            <p>
+              A transparent process gives you something tangible to review at
+              every milestone.
+            </p>
           </Reveal>
           <div className="difference-grid">
             {[
               {
-                number: "01",
-                title: "Your business. Your design.",
-                text: "A custom experience shaped around your audience and goals, with responsive layouts that feel at home on every screen.",
+                title: "Structure before surface.",
+                text: "Review wireframes and page priorities before visual design begins, so the direction is clear before we polish it.",
               },
               {
-                number: "02",
-                title: "Craft meets code.",
-                text: "Thoughtful design, performance-conscious architecture, SEO foundations, and maintainable code in one considered build.",
+                title: "A live view as we build.",
+                text: "Get a private staging link at agreed checkpoints to explore the working build and share focused feedback.",
               },
               {
-                number: "03",
-                title: "Built together. Built to last.",
-                text: "Clear communication, shared milestones, documented handover, and launch and ongoing support options that fit your needs.",
+                title: "Reviews with clear boundaries.",
+                text: "Your proposal sets out review milestones and included revision rounds. We gather feedback in batches and confirm any added scope first.",
               },
             ].map((item) => (
-              <Reveal className="difference-item" key={item.number}>
-                <div className="difference-item-top">
-                  <span>{item.number} /</span>
-                </div>
+              <Reveal className="difference-item" key={item.title}>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </Reveal>
             ))}
           </div>
+          <p className="proof-footnote">You’ll always know what we’re working on, what we need from you, and what happens next.</p>
         </div>
       </section>
       <section className="process-section section-space" id="process">
@@ -247,7 +237,7 @@ export default function Home() {
           <Reveal className="section-heading">
             <div>
               <span className="eyebrow">
-                <span className="tiny-square" /> How we get there / 04
+                <span className="tiny-square" /> How we get there
               </span>
               <h2>
                 <SentenceReveal text="Great work." />
@@ -270,7 +260,7 @@ export default function Home() {
         <Reveal className="section-heading">
           <div>
             <span className="eyebrow">
-              <span className="tiny-square" /> An investment in what’s next / 05
+                <span className="tiny-square" /> An investment in what’s next
             </span>
             <h2>
               <SentenceReveal text="Your ambition." />
@@ -294,10 +284,11 @@ export default function Home() {
             >
               <h3>{item.name}</h3>
               <p>{item.audience}</p>
-              <div className="price">
-                {item.price}
-                <span>A proposal built around your needs</span>
+              <div className="package-timeline">
+                <span>{item.timingLabel}</span>
+                <strong>{item.timing}</strong>
               </div>
+              <p className="package-delivery">{item.delivery}</p>
               <ul>
                 {item.features.map((feature) => (
                   <li key={feature}>
@@ -317,24 +308,59 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <section className="faq-section section-space" id="faq">
+        <div className="container faq-layout">
+          <Reveal className="faq-heading">
+            <span className="eyebrow"><span className="tiny-square" /> Good to know</span>
+            <h2>Before we begin.</h2>
+            <p>Clear answers make for a better first conversation.</p>
+          </Reveal>
+          <div className="faq-list">
+            {[
+              {
+                question: "How long does a project take?",
+                answer: "A focused website is often around 2–4 weeks; a custom product build is more commonly 4–8 weeks. Those are planning ranges, not promises: your proposal will map milestones around scope, content readiness, and feedback.",
+              },
+              {
+                question: "How do revisions work?",
+                answer: "Your proposal lists the review points and revision rounds included at each stage. We ask for consolidated feedback at those checkpoints; if you want more rounds, we’ll agree the added time and cost before continuing.",
+              },
+              {
+                question: "How are payments handled?",
+                answer: "The proposal sets out the payment schedule before work starts, tied to clear project milestones. You’ll know the amounts and due dates in advance, with no surprise additions to the agreed scope.",
+              },
+              {
+                question: "What if the requirements change mid-project?",
+                answer: "We’ll pause on the new request, explain how it affects scope, timing, and cost, then share an updated plan for approval. We only proceed with that change once you’re comfortable with it.",
+              },
+            ].map((item) => (
+              <details className="faq-item" key={item.question}>
+                <summary>{item.question}<span aria-hidden="true" /></summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="contact-section" id="contact">
         <div className="container">
           <div className="contact-top">
             <span className="eyebrow">
               <span className="tiny-square" /> A good place to begin
             </span>
-            <Asterisk size={48} strokeWidth={1.3} />
           </div>
           <Reveal>
             <h2>
-              <SentenceReveal text="Have a project in mind?" />
-              <br />
-              <SentenceReveal text="Let’s build something" />
-              <br />
-              <span>
-                <SentenceReveal text="remarkable." />
+              <SentenceReveal text="Have a " />
+              <span className="contact-highlight">
+                <SentenceReveal text="project in mind?" />
               </span>
-              <ArrowUpRight className="contact-big-arrow" strokeWidth={1.1} />
+              <br />
+              <span className="contact-highlight">
+                <SentenceReveal text="Let’s build something" />
+              </span>
+              {" "}
+              <SentenceReveal text="remarkable." />
             </h2>
           </Reveal>
           <div className="contact-bottom">

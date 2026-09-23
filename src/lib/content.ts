@@ -83,6 +83,8 @@ export const projects = [
       "Let architectural work lead while making the practice, its approach, and the next step easy to find.",
     approach:
       "An image-led layout, a clear project index, and a deliberately quiet interface give each space room to speak.",
+    demonstrates:
+      "Responsive editorial layouts, a considered type system, and image-led storytelling.",
     technologies: ["Next.js", "TypeScript", "Responsive CSS"],
     deliverables: [
       "Visual direction",
@@ -107,6 +109,8 @@ export const projects = [
       "Create hierarchy in a data-rich interface without making everyday tasks feel complex.",
     approach:
       "A focused navigation system, clear account summaries, and deliberate data visualization put useful information first.",
+    demonstrates:
+      "Dashboard hierarchy, illustrative data visualization, and a reusable product UI across screen sizes.",
     technologies: ["React", "TypeScript", "Design system"],
     deliverables: [
       "Product UI direction",
@@ -163,7 +167,9 @@ export const packages = [
   {
     name: "A stronger presence",
     audience: "For brands ready for their next chapter.",
-    price: "Custom quote",
+    timing: "2–4 weeks",
+    timingLabel: "Typical timeline",
+    delivery: "Timing confirmed once pages, content, and integrations are scoped.",
     features: [
       "Custom website design",
       "Responsive development",
@@ -171,12 +177,13 @@ export const packages = [
       "Launch guidance",
     ],
     service: "custom-website",
-    delivery: "Scope and timeline agreed together",
   },
   {
     name: "A bigger possibility",
     audience: "For ideas that need more than a website.",
-    price: "Custom quote",
+    timing: "4–8 weeks",
+    timingLabel: "Typical timeline",
+    delivery: "A milestone plan follows discovery and technical scoping.",
     features: [
       "Product strategy & UX",
       "Custom web application",
@@ -184,12 +191,13 @@ export const packages = [
       "Testing & documentation",
     ],
     service: "web-app",
-    delivery: "Scope and timeline agreed together",
   },
   {
     name: "A lasting partnership",
     audience: "For businesses that want to keep moving.",
-    price: "Custom quote",
+    timing: "Ongoing",
+    timingLabel: "Monthly support",
+    delivery: "A clear monthly scope keeps priorities and capacity visible.",
     features: [
       "Website maintenance",
       "Performance improvements",
@@ -197,6 +205,5 @@ export const packages = [
       "Agreed support plan",
     ],
     service: "support",
-    delivery: "Support terms tailored to your needs",
   },
 ];
